@@ -1,0 +1,16 @@
+{% include 'header_and_footer/header.html' %}
+<br><br><br><br>
+<center>
+<div class="card" style="width: 18rem;">
+  <img src="{{film_id.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">{{film_id.title}}</p>
+    <p class="card-text">{{film_id.description}}</p>
+    <p class="card-text">{{film_id.cost}}</p>
+    <p class="card-text">{{film_id.genre}}</p>
+    <p class="card-text">{{film_id.created_at}}</p>
+  </div>
+</div>
+</center>
+
+{% include 'header_and_footer/footer.html' %}
