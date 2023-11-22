@@ -36,3 +36,9 @@ class Afisha(models.Model):
 
     def __str__(self):
         return self.title_film
+
+class Slider(models.Model):
+    photo = models.URLField()
+
+    def __str__(self):
+        return self.photo

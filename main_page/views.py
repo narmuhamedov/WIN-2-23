@@ -1,16 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from .models import RunString, FilmPostModel, Afisha
+from .models import RunString, FilmPostModel, Afisha, Slider
+
 
 def string_post_view(request):
     if request.method == 'GET':
         string_ = RunString.objects.all()
         film_list = FilmPostModel.objects.all()
         afisha = Afisha.objects.all()
+        slider = Slider.objects.all()
         return render(request, template_name='main_page/index.html',
                       context={
-                                 'string_': string_,
-                                 'film_list': film_list,
-                                 'afisha': afisha,
+                          'string_': string_,
+                          'film_list': film_list,
+                          'afisha': afisha,
+                          'slider_list': slider
+
                       })
 
 
