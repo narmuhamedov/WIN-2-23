@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class RunString(models.Model):
@@ -37,8 +38,21 @@ class Afisha(models.Model):
     def __str__(self):
         return self.title_film
 
+
 class Slider(models.Model):
     photo = models.URLField()
 
     def __str__(self):
         return self.photo
+
+
+class ReviewModel(models.Model):
+    choice_film = models.ForeignKey(FilmPostModel, on_delete=models.CASCADE,
+                                    related_name='comment_object')
+    mark = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1),
+                                                              MaxValueValidator(5)])
+    text_review = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.choice_film} - {self.mark}'
